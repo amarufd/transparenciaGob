@@ -38,10 +38,10 @@ javaxfacesViewState <- '-8717808788863862306%3A-4995707457240490880'
 
 for (numero in 1:14) {
   #numero <- 2
-  urlInicio <- 'javax.faces.partial.ajax=true&javax.faces.source=A2248%3Aform-visualizar%3Adatosplantilla&javax.faces.partial.execute=A2248%3Aform-visualizar%3Adatosplantilla&javax.faces.partial.render=A2248%3Aform-visualizar%3Adatosplantilla&A2248%3Aform-visualizar%3Adatosplantilla=A2248%3Aform-visualizar%3Adatosplantilla&A2248%3Aform-visualizar%3Adatosplantilla_pagination=true&A2248%3Aform-visualizar%3Adatosplantilla_first='
-  urlFinal <- '00&A2248%3Aform-visualizar%3Adatosplantilla_rows=100&A2248%3Aform-visualizar%3Adatosplantilla_encodeFeature=true&A2248%3Aform-visualizar=A2248%3Aform-visualizar&javax.faces.encodedURL=https%3A%2F%2Fwww.portaltransparencia.cl%2FPortalPdT%2Fweb%2Fguest%2Fpdtta%3Fp_p_id%3Dpdtescritoriotaportlet_WAR_pdtescritoriotaportlet%26p_p_lifecycle%3D2%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_cacheability%3DcacheLevelPage%26p_p_col_id%3Dcolumn-1%26p_p_col_count%3D1%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet__jsfBridgeAjax%3Dtrue%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet__facesViewIdResource%3D%252Fviews%252Fview-visualizacion-datos.xhtml%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_materia%3DPR%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_pagina%3D52470664%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_organismo%3DAR004%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_item%3DPCONT&javax.faces.ViewState='
+  bodyInicio <- 'javax.faces.partial.ajax=true&javax.faces.source=A2248%3Aform-visualizar%3Adatosplantilla&javax.faces.partial.execute=A2248%3Aform-visualizar%3Adatosplantilla&javax.faces.partial.render=A2248%3Aform-visualizar%3Adatosplantilla&A2248%3Aform-visualizar%3Adatosplantilla=A2248%3Aform-visualizar%3Adatosplantilla&A2248%3Aform-visualizar%3Adatosplantilla_pagination=true&A2248%3Aform-visualizar%3Adatosplantilla_first='
+  bodyFinal <- '00&A2248%3Aform-visualizar%3Adatosplantilla_rows=100&A2248%3Aform-visualizar%3Adatosplantilla_encodeFeature=true&A2248%3Aform-visualizar=A2248%3Aform-visualizar&javax.faces.encodedURL=https%3A%2F%2Fwww.portaltransparencia.cl%2FPortalPdT%2Fweb%2Fguest%2Fpdtta%3Fp_p_id%3Dpdtescritoriotaportlet_WAR_pdtescritoriotaportlet%26p_p_lifecycle%3D2%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_cacheability%3DcacheLevelPage%26p_p_col_id%3Dcolumn-1%26p_p_col_count%3D1%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet__jsfBridgeAjax%3Dtrue%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet__facesViewIdResource%3D%252Fviews%252Fview-visualizacion-datos.xhtml%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_materia%3DPR%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_pagina%3D52470664%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_organismo%3DAR004%26_pdtescritoriotaportlet_WAR_pdtescritoriotaportlet_item%3DPCONT&javax.faces.ViewState='
   print(numero)
-  BodyStr <- paste(urlInicio,numero,urlFinal,javaxfacesViewState,sep = "")
+  BodyStr <- paste(bodyInicio,numero,bodyFinal,javaxfacesViewState,sep = "")
   contenido <- POST(url = direccion, add_headers('Content-Type'= ContentType ,Cookie = Cookie), body = BodyStr, encode = "form")
   contentNuevo <- content(contenido,"text")
   
@@ -49,7 +49,7 @@ for (numero in 1:14) {
   cData <- xpathSApply(xData, "//text()", xmlValue)
   #cData
   typeof(cData)
-  htmlInicial <- '<html> <header> <title> Mi Primera Pagina </title> </header> <body><table>'
+  htmlInicial <- '<html> <header> <title> Mi Primera Pagina </title> </header> <body> <table>'
   htmlFinal <- '</table> </body> </html>'
   htmlCdata <- paste(htmlInicial,cData[1],htmlFinal,sep = "")
   
